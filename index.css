@@ -1,0 +1,137 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    margin: 0%;
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    background-color: lightblue;
+}
+
+header {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    background-color: midnightblue;
+}
+
+header .css-header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+header .css-header-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.css-tasks-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: 20px;
+}
+
+.css-task-progress {
+    width: 300px;
+    height: auto;
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+}
+
+.css-task-progress button {
+    width: 100px;
+    height: 30px;
+    margin: 3px;
+}
+
+.css-task-progress label {
+    margin: 3px;
+    text-align: center;
+}
+
+.css-new-item-modal {
+    background-color: whitesmoke;
+    left: 32%;
+    top: 10%;
+    width: 550px;
+    height: auto;
+    position: absolute;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 25px;
+    gap: 15px;
+    visibility: hidden;
+}
+
+.css-description-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.css-description {
+    width: 500px;
+    height: 100px;
+}
+
+.css-members-table {
+    width: 500px;
+    height: 100px;
+    overflow-y: scroll;
+    background-color: whitesmoke;
+}
+
+.css-members-commands {
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.css-end-date {
+    width: 200px;
+}
+
+.css-status {
+    width: 200px;
+}
+
+.css-submit-actions {
+    margin-top: 10px;
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.css-mini-item {
+    padding: 10px;
+    width: 280px;
+    height: auto;
+    border: 2px solid lightblue;
+    border-radius: 10px;
+    margin-left: 8px;
+    margin-bottom: 2px;
+    cursor: move;
+}
+
+.css-mini-item-members-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

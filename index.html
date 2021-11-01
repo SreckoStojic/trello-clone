@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet"> 
+    <link rel='stylesheet' type='text/css' media='screen' href='index.css'>
+    <title>Trello Clone</title>
+</head>
+<body>
+    <main>
+        <header>
+            <div class="css-header-top">
+                <div>
+                    <button class="btn btn-default css-menu-btn">Menu</button>
+                    <button class="btn btn-default">Home</button>
+                    <button class="btn btn-default">Boards</button>
+                    <input type="text" placeholder="Jump to..." />
+                </div>
+                <img src="./images/trello-logo.png" alt="logo">
+                <div>
+                    <button class="btn btn-default">Create</button>
+                    <button class="btn btn-default">Info</button>
+                    <button class="btn btn-default">Notification</button>
+                    <button class="btn btn-default">Profile</button>
+                </div>
+            </div>
+            <div class="css-header-bottom">
+                <div class="css-header-bottom-left">
+                    <button class="btn btn-default">Board</button>
+                    <label class="btn btn-default">Project name</label>
+                    <button class="btn btn-default">Star</button>
+                    <button class="btn btn-default">Project</button>
+                    <button class="btn btn-default">Workspace</button>
+                    <button class="btn btn-default">Invite</button>
+                </div>
+                <div class="css-header-bottom-right">
+                    <button class="btn btn-default">Automation</button>
+                    <button class="btn btn-default">Filter</button>
+                    <button class="btn btn-default">Show menu</button>
+                </div>
+            </div>
+        </header>
+        <div class="css-tasks-panel">
+            <div class="css-task-progress">
+                <label class="js-progress-label-backlog">Backlog</label>
+                <button class="btn btn-info" type="button" onclick="openNewItemModal('backlog')">Add a Card</button>
+            </div>
+            <div class="css-task-progress">
+                <label class="js-progress-label-inProgress">In Progress</label>
+                <button class="btn btn-info" type="button" onclick="openNewItemModal('inProgress')">Add a Card</button>
+            </div>
+            <div class="css-task-progress">
+                <label class="js-progress-label-complete">Complete</label>
+                <button class="btn btn-info" type="button" onclick="openNewItemModal('complete')">Add a Card</button>
+            </div>
+            <div class="css-task-progress">
+                <label class="js-progress-label-onHold">On Hold</label>
+                <button class="btn btn-info" type="button" onclick="openNewItemModal('onHold')">Add a Card</button>
+            </div>
+        </div>
+    </main>
+    <div class="css-new-item-modal js-new-item-modal">
+        <h3>Add new item</h3>
+        <div class="css-description-div">
+            <label>Description</label>
+            <textarea class="css-description js-description"></textarea>
+        </div>
+        <div>
+            <label>Members Assigned</label>
+            <table class="css-members-table js-members-table">
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Select</th>
+                </tr>    
+            </table>
+            <div class="css-members-commands">
+                <button class="btn btn-primary" onclick="loadMembers()">Load Members</button>
+            </div>
+        </div>
+        <div class="css-end-date-div">
+            <label>End date: </label>
+            <input class="css-end-date js-end-date" type="date" />
+        </div>
+        <div class="css-status-div">
+            <label>Status: </label>
+            <select class="css-status js-status" value="backlog">
+                <option value="backlog">Backlog</option>
+                <option value="inProgress">In Progress</option>
+                <option value="complete">Complete</option>
+                <option value="onHold">On Hold</option>
+            </select>
+        </div>
+        <div class="css-submit-actions">
+            <button class="btn btn-success" onclick="submitNewItem()">Sumbit</button>
+            <button class="btn btn-warning" onclick="closeNewItemModal()">Cancel</button>
+        </div>
+    </div>
+    <script src="./bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>
