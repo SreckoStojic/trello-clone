@@ -1,36 +1,36 @@
-let items = []
-let members = [
-    {
-        id: 1,
-        username: "Pera"
-    },
-    {
-        id: 2,
-        username: "Zika"
-    },
-    {
-        id: 3,
-        username: "Mika"
-    },
-    {
-        id: 4,
-        username: "Zarko"
-    },
-    {
-        id: 5,
-        username: "Rasko"
-    }
-]
-window.localStorage.setItem["items", JSON.stringify(items)];
-window.localStorage.setItem["members", JSON.stringify(members)];
+// let items = []
+// let members = [
+//     {
+//         id: 1,
+//         username: "Pera"
+//     },
+//     {
+//         id: 2,
+//         username: "Zika"
+//     },
+//     {
+//         id: 3,
+//         username: "Mika"
+//     },
+//     {
+//         id: 4,
+//         username: "Zarko"
+//     },
+//     {
+//         id: 5,
+//         username: "Rasko"
+//     }
+// ]
+// window.localStorage.setItem["items", JSON.stringify(items)];
+// window.localStorage.setItem["members", JSON.stringify(members)];
 
 
-//let items = JSON.parse(window.localStorage.getItem["items"]);
-console.log(window.localStorage.getItem["members"])
-let membersLocalStorage = await JSON.parse(window.localStorage.getItem["members"]);
+// //let items = JSON.parse(window.localStorage.getItem["items"]);
+// console.log(window.localStorage.getItem["members"])
+// let membersLocalStorage = await JSON.parse(window.localStorage.getItem["members"]);
 
-//console.log(items);
-console.log(membersLocalStorage);
+// //console.log(items);
+// console.log(membersLocalStorage);
 
 const newItemModal = document.querySelector(".js-new-item-modal");
 const membersTable = document.querySelector(".js-members-table tr");
@@ -221,27 +221,27 @@ function onDrop(event) {
     setStatusOnElement(draggableElement, newStatus);
 }
 
-// const members = [
-//     {
-//         id: 1,
-//         username: "Pera"
-//     },
-//     {
-//         id: 2,
-//         username: "Zika"
-//     },
-//     {
-//         id: 3,
-//         username: "Mika"
-//     },
-//     {
-//         id: 4,
-//         username: "Zarko"
-//     },
-//     {
-//         id: 5,
-//         username: "Rasko"
-//     }
-// ]
+const members = [
+    {
+        id: 1,
+        username: "Pera"
+    },
+    {
+        id: 2,
+        username: "Zika"
+    },
+    {
+        id: 3,
+        username: "Mika"
+    },
+    {
+        id: 4,
+        username: "Zarko"
+    },
+    {
+        id: 5,
+        username: "Rasko"
+    }
+]
 
-// const items = []
+const items = []
