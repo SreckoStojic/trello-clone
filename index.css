@@ -145,3 +145,31 @@ header .css-header-bottom {
     align-items: center;
     justify-content: space-between;
 }
+
+.example-parent {
+    border: 2px solid #DFA612;
+    color: black;
+    display: flex;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.example-origin {
+    flex-basis: 100%;
+    flex-grow: 1;
+    padding: 10px;
+}
+
+.css-draggable {
+    font-weight: normal;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.example-dropzone {
+    background-color: #6DB65B;
+    flex-basis: 100%;
+    flex-grow: 1;
+    padding: 10px;
+}

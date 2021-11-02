@@ -1,3 +1,37 @@
+let items = []
+let members = [
+    {
+        id: 1,
+        username: "Pera"
+    },
+    {
+        id: 2,
+        username: "Zika"
+    },
+    {
+        id: 3,
+        username: "Mika"
+    },
+    {
+        id: 4,
+        username: "Zarko"
+    },
+    {
+        id: 5,
+        username: "Rasko"
+    }
+]
+window.localStorage.setItem["items", JSON.stringify(items)];
+window.localStorage.setItem["members", JSON.stringify(members)];
+
+
+//let items = JSON.parse(window.localStorage.getItem["items"]);
+console.log(window.localStorage.getItem["members"])
+let membersLocalStorage = await JSON.parse(window.localStorage.getItem["members"]);
+
+//console.log(items);
+console.log(membersLocalStorage);
+
 const newItemModal = document.querySelector(".js-new-item-modal");
 const membersTable = document.querySelector(".js-members-table tr");
 
@@ -74,7 +108,7 @@ function insertMiniItem(newItem) {
     const label = document.querySelector(`.js-progress-label-${newItem.status}`);
     const members = getMemberUsernamesByIDs(newItem);
     const descString = `
-        <div class="css-mini-item js-mini-item" draggable="true" >
+        <div class="css-mini-item css-draggable js-mini-item" id=${newItem.id} draggable="true" ondragstart="onDragStart(event)">
             <p class="js-mini-item-description">${newItem.title}</p>
             <p>End date: ${newItem.endDate}</p>
             <div class="css-mini-item-members-btn">
@@ -88,6 +122,15 @@ function insertMiniItem(newItem) {
 function getStatus() {
     const status = document.querySelector(".js-status");
     return status.value;
+}
+
+function setStatusOnElement(element, statusValue) {
+    items.forEach(item => {
+        if (Number(item.id) === Number(element.id)) {
+            item.status = statusValue;
+        }
+    });
+    
 }
 
 function getEndDate() {
@@ -159,50 +202,46 @@ function removeSiblingsAfterl(tr)
 }
 
 
-function handleDragStart(e) {
-    this.style.opacity = '0.5';
+function onDragStart(event) {
+    event.dataTransfer.setData('text/plain', event.target.id);
+    event.currentTarget.style.backgroundColor = 'cyan';
 }
 
-function handleDragEnd(e) {
-    this.style.opacity = '1';
+function onDragOver(event) {
+    event.preventDefault();
 }
 
-let dndItems = document.querySelectorAll('.js-mini-item');
-dndItems.forEach(function(item) {
-    item.addEventListener('dragstart', handleDragStart);
-    item.addEventListener('dragend', handleDragEnd);
-});
+function onDrop(event) {
+    const id = event.dataTransfer.getData('text');
+    const draggableElement = document.getElementById(id);
+    const dropzone = event.target;
+    dropzone.appendChild(draggableElement);
+    event.dataTransfer.clearData();
+    const newStatus = draggableElement.parentElement.id;
+    setStatusOnElement(draggableElement, newStatus);
+}
 
+// const members = [
+//     {
+//         id: 1,
+//         username: "Pera"
+//     },
+//     {
+//         id: 2,
+//         username: "Zika"
+//     },
+//     {
+//         id: 3,
+//         username: "Mika"
+//     },
+//     {
+//         id: 4,
+//         username: "Zarko"
+//     },
+//     {
+//         id: 5,
+//         username: "Rasko"
+//     }
+// ]
 
-
-
-
-
-
-const members = [
-    {
-        id: 1,
-        username: "Pera"
-    },
-    {
-        id: 2,
-        username: "Zika"
-    },
-    {
-        id: 3,
-        username: "Mika"
-    },
-    {
-        id: 4,
-        username: "Zarko"
-    },
-    {
-        id: 5,
-        username: "Rasko"
-    }
-]
-
-let items = [
-]
-
-
+// const items = []

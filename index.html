@@ -43,19 +43,19 @@
             </div>
         </header>
         <div class="css-tasks-panel">
-            <div class="css-task-progress">
+            <div class="css-task-progress" id="backlog" ondragover="onDragOver(event)" ondrop="onDrop(event)">
                 <label class="js-progress-label-backlog">Backlog</label>
                 <button class="btn btn-info" type="button" onclick="openNewItemModal('backlog')">Add a Card</button>
             </div>
-            <div class="css-task-progress">
+            <div class="css-task-progress" id="inProgress" ondragover="onDragOver(event)" ondrop="onDrop(event)">
                 <label class="js-progress-label-inProgress">In Progress</label>
                 <button class="btn btn-info" type="button" onclick="openNewItemModal('inProgress')">Add a Card</button>
             </div>
-            <div class="css-task-progress">
+            <div class="css-task-progress" id="complete" ondragover="onDragOver(event)" ondrop="onDrop(event)">
                 <label class="js-progress-label-complete">Complete</label>
                 <button class="btn btn-info" type="button" onclick="openNewItemModal('complete')">Add a Card</button>
             </div>
-            <div class="css-task-progress">
+            <div class="css-task-progress" id="onHold" ondragover="onDragOver(event)" ondrop="onDrop(event)">
                 <label class="js-progress-label-onHold">On Hold</label>
                 <button class="btn btn-info" type="button" onclick="openNewItemModal('onHold')">Add a Card</button>
             </div>
