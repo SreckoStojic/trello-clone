@@ -18,6 +18,7 @@ function submitNewItem() {
     const description = getDescription();
     const endDate = getEndDate();
     const progressStatus = getStatus();
+    const title = getTitle()
     let count = items.length;
 
     let newItem = {
@@ -25,15 +26,36 @@ function submitNewItem() {
         memberIDs: memberIDs,
         description: description,
         endDate: endDate,
-        status: progressStatus
+        status: progressStatus,
+        title: title
     }
     items.push(newItem);
     insertMiniItem(newItem);
     console.log(items);
 }
 
-function viewItemDetails() {
+function viewItemDetails(id) {
     openNewItemModal();
+    const item = findItem(id);
+    const status = document.querySelector(".js-status");
+    const endDate = document.querySelector('.js-end-date');
+    const description = document.querySelector(".js-description");
+    const title = document.querySelector(".js-title");
+    
+    title.value = item.title;
+    status.value = item.status;
+    endDate.value = item.endDate;
+    description.value = item.description;
+    setSelectedMembers(id);
+}
+
+function findItem(id) {
+    items.forEach(element => {
+        if(id === element.id){
+            item = element;
+        }
+    });
+    return item;
 }
 
 function getMemberUsernamesByIDs(item) {
@@ -53,10 +75,11 @@ function insertMiniItem(newItem) {
     const members = getMemberUsernamesByIDs(newItem);
     const descString = `
         <div class="css-mini-item js-mini-item" draggable="true" >
-            <p class="js-mini-item-description">${newItem.description}</p>
+            <p class="js-mini-item-description">${newItem.title}</p>
+            <p>End date: ${newItem.endDate}</p>
             <div class="css-mini-item-members-btn">
                 <p>${members}</p>
-                <button class="btn btn-info" onclick="viewItemDetails()">View</button>
+                <button class="btn btn-info" onclick="viewItemDetails(${newItem.id})">View</button>
             </div>
         </div>`;
     label.insertAdjacentHTML('afterend', descString);
@@ -75,6 +98,32 @@ function getEndDate() {
 function getDescription() {
     const description = document.querySelector(".js-description");
     return description.value;
+}
+
+function getTitle() {
+    const title = document.querySelector(".js-title");
+    return title.value;
+}
+
+function setSelectedMembers(itemID) {
+    item = findItem(itemID);
+    const listOfCheckboxes = document.querySelectorAll(".js-member-checkbox");
+    const listOfMemberIDs = item.memberIDs;
+    clearCheckBoxes();
+    listOfMemberIDs.forEach(memberID => {
+        listOfCheckboxes.forEach(ch => {
+            if (Number(ch.value) === Number(memberID)) {
+                ch.checked = true;
+            }
+        });
+    });
+}
+
+function clearCheckBoxes() {
+    const listOfCheckboxes = document.querySelectorAll(".js-member-checkbox");
+    listOfCheckboxes.forEach(ch => {
+        ch.checked = false;
+    });
 }
 
 function getSelectedMembers() {

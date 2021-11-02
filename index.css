@@ -87,6 +87,16 @@ header .css-header-bottom {
     height: 100px;
 }
 
+.css-title-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.css-title {
+    width: 300px;
+    height: 26  px;
+}
+
 .css-members-table {
     width: 500px;
     height: 100px;
